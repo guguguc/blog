@@ -1,0 +1,302 @@
+
+html {
+    width: 100%;
+    height: 100%;
+    background-color: #f2eee1;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    line-height: 1.4;
+    font-family: monospace, Arial, sans-serif;
+    color: #2c3e50;
+}
+
+p {
+    word-break: keep-all;
+}
+
+h1 {
+    /* text-align: center; */
+    color: #c52939;
+    margin-bottom: 0;
+}
+
+.header-container {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+}
+.container {
+    height: 100%;
+    flex: 1;
+}
+
+.section {
+    padding-bottom: 10px;
+}
+
+.section h1{
+    font-size: 24px;
+    font-weight: 500;
+    color: #090a0a;
+}
+
+#canvas-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+canvas {
+    display: inline;
+}
+
+.section h1::before {
+    content: "#";
+    color: #c52939;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin-top: 10px;
+    padding-left: 0px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+th, td {
+    border: 1px solid #ddd;
+    height: 50px;
+}
+
+.site-title h1{
+    font-weight: 500;
+}
+
+.site-nav {
+    border-bottom: dashed 3px #800000;
+    padding-bottom: 5px;
+}
+
+.site-nav a{
+    color: black;
+
+}
+
+.logo-wrapper {
+    display: inline-flex;
+    align-self: center;
+    position: relative;
+    height: 60px;
+    width: 60px;
+}
+.logo {
+    left: -20px;
+    bottom: -0.6em;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    border-radius: 50%;
+}
+
+.menu-item {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+#search-bar {
+    float: right;
+}
+
+#search-bar input {
+    border-radius: 10px;
+}
+
+#search-button {
+    height: 24px;
+    color: #fff;
+    border: 1px solid #c52939;
+    border-radius: 2px;
+    background-color: #c52939;
+    padding: 0 20px;
+    font-size: 10px;
+}
+
+.svg-icon {
+    display: inline-flex;
+    align-self: center;
+    position: relative;
+    height: 1em;
+    width: 1em;
+}
+ .svg-icon svg {
+    bottom: -0.125em;
+    position: absolute;
+} 
+main {
+    flex:1;
+    font-size: 14px;
+}
+#main {
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+article {
+    padding: 1em 4em;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.posts-group {
+    margin: auto;
+    max-width: 800px;
+    position: relative;
+    line-height: normal;
+}
+
+.posts-year {
+    padding-top: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 10px;
+    opacity: .6;
+}
+
+.posts-list {
+    margin: 0;
+    list-style: none;
+}
+
+.post-item {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.post-title {
+    font-size: 16px;
+}
+
+.post-day {
+    color: grey;
+    font-size: 16px;
+    margin-right: 16px;
+}
+
+.wrapper {
+    color: black;
+    font-size: 14px;
+}
+
+.post-tag {
+    color: grey;
+    text-align: right;
+    font-size: 12px;
+}
+.posts-group .post-item a {
+    color: #800000;
+    padding: 0 0 6px 0;
+}
+.content .post-block .post-header {
+    margin-bottom: 20px;
+}
+
+.content {
+    flex: 1;
+}
+
+.post-body {
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.post-body h2 {
+    font-weight: bold;
+    font-size: 19pt;
+    padding-bottom: 10px;
+    border-bottom: 1px grey solid;
+    color: #666;
+}
+.post-body h3 {
+    color: #666;
+}
+.post-body h2::before {
+    content: "#";
+    color: #2bbc8a;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+}
+.post-body a{
+    color: #3673a5
+}
+
+code {
+    /* border-radius: px; */
+    font-family: Consolas;
+    padding: 2px 4px;
+    background-color: #f9f2f4;
+    color: #c7254e;
+}
+@media (max-width: 700px) {
+    .posts-group {
+        display: block;
+    }
+    .posts-year {
+        margin: -6px 0 8px;
+    }
+    #main {
+        width: 95%;
+        overflow: hidden;
+        margin-top: 0;
+        /* margin-left: 10px; */
+        /* margin-right: 10px; */
+        /* padding: 20px; */
+    }
+    article {
+        box-shadow: none;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination li {
+    display: inline;
+}
+
+footer {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin: 0;
+    font-size: 11px;
+    color: grey;
+    width: 100%;
+    text-align: center;
+}
