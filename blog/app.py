@@ -15,9 +15,11 @@ with app.app_context():
 
 from blog.route.posts import post_blueprint
 from blog.route.home import home_blueprint
+from blog.route.tags import tag_blueprint
 
 app.register_blueprint(post_blueprint)
 app.register_blueprint(home_blueprint)
+app.register_blueprint(tag_blueprint)
 
 if __name__ == '__main__':
     app.run()

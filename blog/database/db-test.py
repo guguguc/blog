@@ -7,16 +7,16 @@ conn = me.connect("Blog")
 class Post(me.Document):
     title = me.StringField(max_length=200, required=True, unique=True)
     date = me.DateTimeField(default=datetime.datetime.now)
-    tags = me.ListField(me.StringField(max_length=100), max_length=5)
+    tags = me.StringField(max_length=100)
     content = me.StringField(required=True)
     meta = {'collection': 'post'}
 
 if __name__ == "__main__":
+    blogs = [tuple(line.strip().split()) for line in open("article.txt").readlines()]
+
     # Insert
-    blog_title = [line.strip() for line in open("titles.txt").readlines()]
-    for title in blog_title:
-        p = Post(title=title, tags=['python', 'programming'],
-                 content="python is an easy-learning")
+    for title, tag in blogs:
+        p = Post(title=title, tags=tag, content="python is an easy-learning")
         try:
             p.save()
         except Exception as e:
@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     # all posts with tags ['python', 'programming']
     print('[*] all posts has tags [python, programming]')
-    p2 = Post.objects(tags=['python', 'programming'])
+    p2 = Post.objects(tags='python')
     for post in p2:
         print(post.tags, post.content)
 
