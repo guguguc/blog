@@ -9,12 +9,13 @@
 
 <div class="tags">
 {% for item in tag_info %}
-<a href="#{{item['tag']}}">{{item['tag']}}[{{item['count']}}]</a>
+<a href="#{{item['tag']}}">{{item['tag']}} {{item['count']}}</a>
 {% endfor %}
 </div>
 
 {% for item in article_info %}
 <div class="tag_title"><h3 id={{item['tag']}}>{{item['tag']}}</h3></div>
+    <div class="group">
     {% for article in item['articles'] %}
         <li class="post-item">
             <a href="{{url_for('post_page.get_post', post_id=article.id)}}">
@@ -23,6 +24,7 @@
             </a>
         </li>
     {% endfor%}
+    </div>
 {% endfor %}
 
 {% endblock %}

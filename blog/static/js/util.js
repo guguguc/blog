@@ -1,7 +1,16 @@
+function mark_current() {
+    let pagenation = document.getElementsByClassName("pagination");
+    if (pagenation.length == 0) return;
+    pagenation = pagenation[0];
+    let current = location.href;
+    let page = pagenation.getElementsByTagName("a");
+    for (let idx = 0; idx < page.length; ++idx) {
+        if (page[idx].href == current) {
+            page[idx].classList.add("current");
+            console.log(page[idx].href);
+            break;
+        }
+    }
+}
 
-const bar = document.querySelector("#search-bar");
-let resp = document.querySelector(".test");
-
-bar.addEventListener('input', function(e) {
-    resp.value = e.target.value;
-})
+mark_current();
