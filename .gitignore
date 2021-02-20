@@ -7,3 +7,4 @@ instance/
 .vscode/
 .vim/
 .venv/
+.idea/

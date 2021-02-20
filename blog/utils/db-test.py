@@ -4,6 +4,7 @@ import datetime
 
 conn = me.connect("Blog")
 
+
 class Post(me.Document):
     title = me.StringField(max_length=200, required=True, unique=True)
     date = me.DateTimeField(default=datetime.datetime.now)
@@ -11,12 +12,14 @@ class Post(me.Document):
     content = me.StringField(required=True)
     meta = {'collection': 'post'}
 
+
 if __name__ == "__main__":
-    blogs = [tuple(line.strip().split()) for line in open("article.txt").readlines()]
+    blogs = [tuple(line.strip().split()) for line in open("../database/article.txt").readlines()]
+    content = open("../achieves/test2.md").read()
 
     # Insert
     for title, tag in blogs:
-        p = Post(title=title, tags=tag, content="python is an easy-learning")
+        p = Post(title=title, tags=tag, content=content)
         try:
             p.save()
         except Exception as e:
