@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-import pymongo
-from flask import Flask, current_app
+from flask import Flask
+from flask_admin import Admin
 from flask_mongoengine import MongoEngine
+
+from blog.route.posts import post_bp
+from blog.route.home import home_bp
+from blog.route.tags import tag_bp
+from blog.route.admin import CustomIndexlView, CustomModelView, auth_bp
+from blog.utils.db import Post
 
 app = Flask(import_name=__name__, instance_relative_config=True)
 app.config.from_pyfile('config.py')
 db = MongoEngine(app)
 
-with app.app_context():
-    try:
-        db.connection.admin.command('ismaster')
-    except Exception as e:
-        print(e)
+app.register_blueprint(post_bp)
+app.register_blueprint(home_bp)
+app.register_blueprint(tag_bp)
+app.register_blueprint(auth_bp)
 
-from blog.route.posts import post_blueprint
-from blog.route.home import home_blueprint
-from blog.route.tags import tag_blueprint
-
-app.register_blueprint(post_blueprint)
-app.register_blueprint(home_blueprint)
-app.register_blueprint(tag_blueprint)
+admin = Admin(app, name="blog", template_mode='bootstrap3', index_view=CustomIndexlView())
+admin.add_view(CustomModelView(Post))
 
 if __name__ == '__main__':
     app.run()

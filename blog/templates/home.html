@@ -2,36 +2,35 @@
 
 {% block main %}
 
-<div class="section">
-<h1 >Recents </h1>
-</div>
+    <div class="section">
+        <h1>Recents </h1>
+    </div>
 
-<div class="group">
-{% for post in page_info.items %}
-<div class="posts-group">
-    <ul class="posts-list">
-        <li class="post-item">
-            <a href="{{ url_for('post_page.get_post', post_id=post.id) }}">
+    <div class="group">
+        {% for post in page_info.items %}
+            <div class="posts-group">
+                <ul class="posts-list">
+                    <li class="post-item">
+                        <a href="{{ url_for('post_page.get_post', post_id=post.id) }}">
                 <span class="post-day">
                     {{ "{0}".format(post.date)[:11] }}
                 </span>
-                <span class="post-title"> {{ post.title }} </span>
-            </a>
-        </li>
-    </ul>
-</div>
-{% endfor %}
-</div>
+                            <span class="post-title"> {{ post.title }} </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
 
-<div class="section">
-<h1>Activity </h1>
-</div>
+    <div class="section">
+        <h1>Activity </h1>
+    </div>
 
-<script src="{{url_for('static', filename='js/Chart.HeatMap.S.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/Chart.HeatMap.S.min.js') }}"></script>
+    <div id="canvas-wrapper">
+        <canvas id="activity" width="800" height="200"></canvas>
+    </div>
+    <script src="{{ url_for('static', filename='js/canvas.js') }}"></script>
 
-<div id="canvas-wrapper">
-    <canvas id="activity" width="800" height="200"> </canvas>
-</div>
-
-<script src="{{url_for('static', filename='js/canvas.js')}}"></script>
 {% endblock %}

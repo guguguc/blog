@@ -14,8 +14,8 @@ class Post(me.Document):
 
 
 if __name__ == "__main__":
-    blogs = [tuple(line.strip().split()) for line in open("../database/article.txt").readlines()]
-    content = open("../achieves/test2.md").read()
+    blogs = [tuple(line.strip().split()) for line in open("article.txt").readlines()]
+    content = open("../achieves/test.md").read()
 
     # Insert
     for title, tag in blogs:

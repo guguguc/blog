@@ -1,18 +1,14 @@
-import time
 import os
-import base64
+import time
 import markdown
 
-class Post:
-    def __init__(self, title, content, date):
-        self.title = title
-        self.content = content
-        self.date = date
-        self.url = base64.b64encode(bytes(title, encoding='utf8'))
+from blog.utils.db import Post
+
 
 def get_post(post_path):
     with open(post_path, mode="r", encoding='utf8') as fp:
         post_title = fp.readline().replace('- title ', '').strip()
+        # post_tag = fp.readline().replacee('-')
         post_time = fp.readline().replace('- time ', '').strip()
         post_content = markdown.markdown(fp.read(), extensions=['extra'])
     return {
@@ -21,9 +17,11 @@ def get_post(post_path):
         'post_content': post_content,
     }
 
+
 def get_post_time(post_path):
     timestamp = os.path.getctime(post_path)
     return timestamp2time(timestamp)
+
 
 def timestamp2time(timestamp):
     time_struct = time.localtime(timestamp)
@@ -35,6 +33,7 @@ def get_single_post(post_path):
     post_time = get_post_time(post_path)
     post = Post(post_info['post_title'], post_info['post_content'], post_time)
     return post
+
 
 def get_posts():
     """ get all post info in dictory md"""

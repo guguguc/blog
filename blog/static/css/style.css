@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Meslo LG';
+  font-style: normal;
+  src: local('Meslo LG S'), url("https://cdn.jsdelivr.net/gh/powerline/fonts@master/Meslo%20Slashed/Meslo%20LG%20S%20Regular%20for%20Powerline.ttf") format('truetype');
+}
+
 html {
     width: 100%;
     height: 100%;
@@ -12,7 +18,7 @@ body {
     flex-direction: column;
     font-size: 18px;
     line-height: 1.4;
-    font-family: monospace, Arial, sans-serif;
+    font-family: "Menlo", "Meslo LG", monospace;
     color: #2c3e50;
 }
 
@@ -256,40 +262,56 @@ article {
     flex: 1;
 }
 
+.post-header h1 {
+    font-size: 1.2rem;
+}
+
 .post-body {
-    font-family: monospace;
     font-size: 14px;
     line-height: 1.4;
 }
 
 .post-body h2 {
     font-weight: bold;
-    font-size: 19pt;
+    font-size: 1.2rem;
     padding-bottom: 10px;
-    border-bottom: 1px grey solid;
-    color: #666;
+    border-bottom: 1px solid #e1e4e8;
 }
+
 .post-body h3 {
-    color: #666;
+    font-weight: 600;
+    font-size: 1rem;
 }
+
+.post-body h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
 .post-body h2::before {
     content: "#";
-    color: #2bbc8a;
+    color: #c52939;
     position: relative;
     font-size: 20px;
     font-weight: bold;
 }
+
+.post-body p {
+    hyphens: auto;
+    line-height: 1.4;
+}
+
 .post-body a{
     color: #3673a5
 }
 
-code {
-    /* border-radius: px; */
-    font-family: Consolas;
-    padding: 2px 4px;
-    background-color: #f9f2f4;
-    color: #c7254e;
+.post-body img {
+    max-width: 100%;
+    margin: 0 auto;
 }
+
 @media (max-width: 700px) {
     .posts-group {
         display: block;
@@ -337,4 +359,16 @@ footer {
     color: grey;
     width: 100%;
     text-align: center;
+}
+
+::marker {
+    color: #c52939;
+}
+
+.login-body {
+    padding-top: 100px;
+}
+
+.card-wrapper {
+    max-width: 600px;
 }

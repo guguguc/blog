@@ -1,28 +1,29 @@
 var data = {
-  labels : ['0h','1h','2h','3h','4h','5h','6h','7h','8h','9h','10h','11h'],
+  labels : ['Jan.','Feb.','Mar.','Apr.','May','Jun.','Jul.','Aug.','Sept.','Oct.','Nov.','Dec.'],
   datasets : [
     {
-      label: 'Monday',
+      label: 'Week 1',
       data: [8, 6, 5, 7, 9, 8, 1, 6, 3, 3, 8, 7]
     },
     {
-      label: 'Tuesday',
+      label: 'Week 2',
       data: [6, 8, 5, 6, 5, 5, 7, 0, 0, 3, 0, 7]
     },
     {
-      label: 'Wednesday',
+      label: 'Week 3',
       data: [8, 5, 6, 4, 2, 2, 3, 0, 2, 0, 10, 8]
     },
     {
-      label: 'Thursday',
+      label: 'Week 4',
       data: [4, 0, 7, 4, 6, 3, 2, 4, 2, 10, 8, 2]
     },
     {
-      label: 'Friday',
+      label: 'Week 5',
       data: [1, 0, 0, 7, 0, 4, 1, 3, 4, 5, 1, 10]
     }
   ]
 };
+
 options = {
     // String - background color for graph
     backgroundColor: '#fff',
