@@ -1,6 +1,7 @@
-#!/usr/bin/python3
-import mongoengine as me
+import os
 import datetime
+
+import mongoengine as me
 
 conn = me.connect("Blog")
 
@@ -13,17 +14,26 @@ class Post(me.Document):
     meta = {'collection': 'post'}
 
 
+def gen_article(dirname):
+    files = os.listdir(dirname)
+    articles = [
+        dict(title=filename,
+             tag="test",
+             content=open(os.path.join(dirname, filename)).read())
+        for filename in files
+    ]
+    return articles
+
+
 if __name__ == "__main__":
-    blogs = [tuple(line.strip().split()) for line in open("article.txt").readlines()]
-    content = open("../achieves/test.md").read()
+    articles = gen_article("../achieves")
 
     # Insert
-    for title, tag in blogs:
-        p = Post(title=title, tags=tag, content=content)
-        try:
-            p.save()
-        except Exception as e:
-            print(e)
+    for article in articles:
+        p = Post(title=article["title"],
+                 tags=article["tag"],
+                 content=article["content"])
+        p.save()
 
     # Query
     for post in Post.objects:

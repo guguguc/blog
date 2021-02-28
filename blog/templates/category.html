@@ -4,7 +4,9 @@
 
     <div class="tags">
         {% for item in tag_info %}
-            <a href="#{{ item['tag'] }}">{{ item['tag'] }} {{ item['count'] }}</a>
+            <div class="tags-item">
+                <a href="#{{ item['tag'] }}">{{ item['tag'] }} {{ item['count'] }}</a>
+            </div>
         {% endfor %}
     </div>
 

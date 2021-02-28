@@ -1,29 +1,3 @@
-var data = {
-  labels : ['Jan.','Feb.','Mar.','Apr.','May','Jun.','Jul.','Aug.','Sept.','Oct.','Nov.','Dec.'],
-  datasets : [
-    {
-      label: 'Week 1',
-      data: [8, 6, 5, 7, 9, 8, 1, 6, 3, 3, 8, 7]
-    },
-    {
-      label: 'Week 2',
-      data: [6, 8, 5, 6, 5, 5, 7, 0, 0, 3, 0, 7]
-    },
-    {
-      label: 'Week 3',
-      data: [8, 5, 6, 4, 2, 2, 3, 0, 2, 0, 10, 8]
-    },
-    {
-      label: 'Week 4',
-      data: [4, 0, 7, 4, 6, 3, 2, 4, 2, 10, 8, 2]
-    },
-    {
-      label: 'Week 5',
-      data: [1, 0, 0, 7, 0, 4, 1, 3, 4, 5, 1, 10]
-    }
-  ]
-};
-
 options = {
     // String - background color for graph
     backgroundColor: '#fff',
@@ -77,5 +51,20 @@ options = {
             '</span>'+
             '</div>'
 };
-var ctx = document.getElementById("activity").getContext('2d');
-var newChart = new Chart(ctx).HeatMap(data, options);
+
+function disp_canvas() {
+    let req = new XMLHttpRequest()
+    req.addEventListener("load", function () {
+        let resp = JSON.parse(this.responseText)
+        let ctx = document.getElementById("activity").getContext('2d');
+        let data = {
+            labels : ['Jan.','Feb.','Mar.','Apr.','May','Jun.','Jul.','Aug.','Sept.','Oct.','Nov.','Dec.'],
+            datasets : resp["datasets"]
+        };
+        var chart = new Chart(ctx).HeatMap(data, options);
+    })
+    req.open("GET", "/api/activity")
+    req.send()
+}
+
+disp_canvas()

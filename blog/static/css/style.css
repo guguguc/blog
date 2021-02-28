@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Meslo LG';
-  font-style: normal;
-  src: local('Meslo LG S'), url("https://cdn.jsdelivr.net/gh/powerline/fonts@master/Meslo%20Slashed/Meslo%20LG%20S%20Regular%20for%20Powerline.ttf") format('truetype');
+    font-family: 'Meslo LG';
+    font-style: normal;
+    src: local('Meslo LG S'), url("https://cdn.jsdelivr.net/gh/powerline/fonts@master/Meslo%20Slashed/Meslo%20LG%20S%20Regular%20for%20Powerline.ttf") format('truetype');
 }
 
 html {
@@ -42,6 +42,7 @@ hr {
     border: 0;
     border-top: 1px solid rgba(0, 0, 0, .2);
 }
+
 .container {
     height: 100%;
     flex: 1;
@@ -51,7 +52,7 @@ hr {
     padding-bottom: 15px;
 }
 
-.section h1{
+.section h1 {
     font-size: 24px;
     font-weight: 600;
     color: #2a9d8f;
@@ -91,27 +92,34 @@ a {
     border-radius: 6px;
 }
 
+.tags-item {
+    display: inline-block;
+    margin-top: 20px;
+}
+
 ul {
     margin-top: 10px;
     padding-left: 0px;
 }
+
 table {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
 }
+
 th, td {
     border: 1px solid #ddd;
     height: 50px;
 }
 
-.site-title h1{
+.site-title h1 {
     font-weight: 600;
-    font-family: "Merriweather",Georgia,Times,"Times New Roman",serif;
+    font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
     font-size: 2.5rem;
 }
 
-.site-nav a{
+.site-nav a {
     color: #24567c;
     font-size: 16px;
     font-weight: 600;
@@ -172,27 +180,31 @@ th, td {
     height: 1em;
     width: 1em;
 }
- .svg-icon svg {
+
+.svg-icon svg {
     bottom: -0.125em;
     position: absolute;
-} 
+}
 
 main {
-    flex:1;
+    flex: 1;
     font-size: 14px;
 }
+
 #main {
     max-width: 800px;
     margin: auto;
     margin-top: 30px;
     margin-bottom: 20px;
 }
-article {
+
+.block {
     padding: 1em 4em;
     background-color: #fff;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
+
 .posts-group {
     margin: auto;
     max-width: 800px;
@@ -250,10 +262,12 @@ article {
     text-align: right;
     font-size: 12px;
 }
+
 .posts-group .post-item a {
     color: #800000;
     padding: 0 0 2px 0;
 }
+
 .content .post-block .post-header {
     margin-bottom: 20px;
 }
@@ -303,7 +317,7 @@ article {
     line-height: 1.4;
 }
 
-.post-body a{
+.post-body a {
     color: #3673a5
 }
 
@@ -316,14 +330,17 @@ article {
     .posts-group {
         display: block;
     }
+
     .posts-year {
         margin: -6px 0 8px;
     }
+
     #main {
         width: 95%;
         margin-top: 30px;
     }
-    article {
+
+    .block {
         box-shadow: none;
         padding: 0;
         background-color: #fafafa;
@@ -346,7 +363,7 @@ article {
     color: white;
 }
 
-.tag_title h3{
+.tag_title h3 {
     color: #2a9d8f;
     margin-bottom: 5px;
 }

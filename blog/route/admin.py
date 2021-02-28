@@ -1,14 +1,13 @@
-from flask import session, redirect, url_for, request, Blueprint, render_template, current_app, flash
 import wtforms as wtf
+from flask import session, redirect, url_for, request, render_template, current_app, flash, Blueprint
 
 from flask_admin import AdminIndexView
 from flask_admin.helpers import is_form_submitted
 from flask_admin.contrib.mongoengine import ModelView
 
-auth_bp = Blueprint(name="auth", import_name=__name__, template_folder="../template")
-
-""" Login auth
-"""
+auth_bp = Blueprint(name="auth",
+                    import_name=__name__,
+                    template_folder="../template")
 
 
 @auth_bp.route("/login", methods=("GET", "POST"))
@@ -17,7 +16,8 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         error = None
-        if username != current_app.config["USERNAME"] or password != current_app.config["PASSWORD"]:
+        if username != current_app.config[
+                "USERNAME"] or password != current_app.config["PASSWORD"]:
             error = "Incorrect user name or password!"
         if error is None:
             session.clear()
@@ -40,15 +40,10 @@ def challenge():
     return redirect(url_for('auth.login', next=request.url))
 
 
-"""Custom Admin View
-"""
-
-
 class CustomIndexlView(AdminIndexView):
     """
     Add login authentication to Admin index.
     """
-
     def is_accessible(self):
         return check_auth()
 
@@ -76,7 +71,10 @@ class CustomModelView(ModelView):
         formdata = request.form
         if request.files:
             formdata = formdata.copy()
-            formdata.update({k: v.read().decode("utf-8") for k, v in request.files.items()})
+            formdata.update({
+                k: v.read().decode("utf-8")
+                for k, v in request.files.items()
+            })
         return formdata
 
     def create_form(self, obj=None):
