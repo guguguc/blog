@@ -27,11 +27,11 @@ options = {
     // 0.9 is slightly darker, and 1.1 is slightly lighter.
     colorHighlightMultiplier: 0.92,
     // Boolean - Whether to draw labels on the boxes
-    showLabels: true, 
+    showLabels: false,
     // Number - the font size of the label as percentage of box height
     labelScale: 0.2,
     // String - label font family
-    labelFontFamily: '"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
+    labelFontFamily: 'monospace, sans-serif',
     // String - label font style
     labelFontStyle: "normal",
     // String - label font color

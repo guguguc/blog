@@ -1,4 +1,5 @@
-pymongo
+uwsgi
 flask
+pymongo
 flask-mongoengine
 flask-admin
