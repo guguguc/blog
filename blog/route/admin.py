@@ -62,8 +62,7 @@ class CustomModelView(ModelView):
         return challenge()
 
     def get_create_form(self):
-        form = self.get_form()
-        return form
+        return self.get_form()
 
     @staticmethod
     def get_form_data():
@@ -80,4 +79,7 @@ class CustomModelView(ModelView):
 
     def create_form(self, obj=None):
         """Change default behevior to allow file type of content"""
+        return self.get_create_form()(CustomModelView.get_form_data(), obj=obj)
+
+    def edit_form(self, obj=None):
         return self.get_create_form()(CustomModelView.get_form_data(), obj=obj)
