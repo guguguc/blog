@@ -1,0 +1,21 @@
+services:
+    db:
+        image: "mongo"
+        volumes:
+            - type: volume
+              source: mongodb
+              target: /data/db
+              volume:
+                  nocopy: true
+
+    web:
+        build: .
+        ports:
+            - "80:80"
+        volumes:
+            - .:/usr/src/blog
+            - /var/log:/var/log
+        depends_on:
+            - db
+        tty: true
+

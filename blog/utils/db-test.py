@@ -3,7 +3,7 @@ import datetime
 
 import mongoengine as me
 
-conn = me.connect("Blog")
+conn = me.connect("Blog", host='db')
 
 
 class Post(me.Document):

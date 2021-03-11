@@ -1,5 +1,6 @@
 import wtforms as wtf
-from flask import session, redirect, url_for, request, render_template, current_app, flash, Blueprint
+from flask import session, redirect, url_for, request, \
+    render_template, current_app, flash, Blueprint
 
 from flask_admin import AdminIndexView
 from flask_admin.helpers import is_form_submitted

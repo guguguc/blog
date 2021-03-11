@@ -3,7 +3,9 @@ from markdown import markdown
 
 from blog.utils.db import Post
 
-post_bp = Blueprint(name="post_page", import_name=__name__, template_folder='../templates')
+post_bp = Blueprint(name="post_page",
+                    import_name=__name__,
+                    template_folder='../templates')
 
 
 @post_bp.route('/achieves/', defaults={'page': 1})

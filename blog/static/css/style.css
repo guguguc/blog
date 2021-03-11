@@ -78,8 +78,6 @@ a {
 }
 
 .tags {
-    margin-left: 12px;
-    margin-bottom: 30px;
 }
 
 .tags a {
@@ -94,7 +92,6 @@ a {
 
 .tags-item {
     display: inline-block;
-    margin-top: 20px;
 }
 
 ul {
@@ -199,10 +196,10 @@ main {
 }
 
 .block {
-    padding: 1em 4em;
+    padding: 2em 4em;
     background-color: #fff;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    border: 1px solid;
 }
 
 .posts-group {
