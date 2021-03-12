@@ -6,12 +6,12 @@ from flask_admin import AdminIndexView
 from flask_admin.helpers import is_form_submitted
 from flask_admin.contrib.mongoengine import ModelView
 
-auth_bp = Blueprint(name="auth",
+bp_auth = Blueprint(name="auth",
                     import_name=__name__,
                     template_folder="../template")
 
 
-@auth_bp.route("/login", methods=("GET", "POST"))
+@bp_auth.route("/login", methods=("GET", "POST"))
 def login():
     if request.method == "POST":
         username = request.form["username"]
@@ -28,7 +28,7 @@ def login():
     return render_template("login.html")
 
 
-@auth_bp.before_request
+@bp_auth.before_request
 def set_session():
     session.permanent = False
 
@@ -82,4 +82,5 @@ class CustomModelView(ModelView):
         return self.get_create_form()(CustomModelView.get_form_data(), obj=obj)
 
     def edit_form(self, obj=None):
+        """Change default behevior to allow file type of content"""
         return self.get_create_form()(CustomModelView.get_form_data(), obj=obj)
