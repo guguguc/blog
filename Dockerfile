@@ -19,6 +19,7 @@ COPY . .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN mkdir -p /run/nginx \
+    && mkdir -p /etc/nginx/conf.d \
     && cp scripts/nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD ["/bin/sh", "scripts/start.sh"]
